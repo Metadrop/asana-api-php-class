@@ -934,6 +934,31 @@ class Asana
         return $this->askAsana($this->storiesUrl . '/' . $storyId . '?' . $options);
     }
 
+    /**
+     * **********************************
+     * Teams functions.
+     * **********************************
+     */
+
+    /**
+     * Get a team by its id.
+     *
+     * @param string $teamId
+     * @return string JSON or null
+     */
+    public function getTeam($teamId) {
+        return $this->askAsana($this->teamsUrl . '/' . $teamId);
+    }
+
+    /**
+     * Get team users.
+     *
+     * @param string $teamId
+     * @return string JSON or null
+     */
+    public function getTeamUsers($teamId, array $opts = array()) {
+        return $this->askAsana($this->teamsUrl . '/' . $teamId . '/users?' . http_build_query($opts));
+    }
 
     /**
      * **********************************
